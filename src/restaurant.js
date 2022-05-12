@@ -92,9 +92,7 @@
 // - fará a soma do preço desses itens;
 // - retornará o valor somado acrescido de 10%.
 // DICA: para isso, você precisará percorrer tanto o objeto da chave `food` quanto o objeto da chave `drink`.
-
-const createMenu = (menuObj) => (
-  {
+const createMenu = (menuObj) => ({
     menu: menuObj,
     fetchMenu() { 
       return this.menu; 
@@ -105,14 +103,28 @@ const createMenu = (menuObj) => (
     },
     pay() {
       const { food, drink } = this.menu;
-      return this.consumption
-      .map((value) => {
-        if (Object.keys(food).includes(value)) return food[value];
-        return drink[value];
-      })
-      .reduce((acc, value) => acc + value, 0);
+      return parseFloat((this.consumption
+      .reduce((total, item) => {
+        if (Object.keys(food).includes(item)) return total + (food[item] * 1.1);
+        return total + (drink[item] * 1.1);
+      }, 0)).toFixed(2));      
     },
-  }
-);
+  });
+
+// const createMenu = (menu) => {
+//   const object = {
+//   fetchMenu: () => menu,
+//   consumption: [],
+//   order: (value) => object.consumption.push(value),
+//   pay: () => {
+//   let total = 0;
+//   object.consumption.forEach((element) => { total += object.fetchMenu()[element]; });
+//   return total;
+//   },
+//   };
+//   return object;
+//   }; 
+
+console.log((2.887678).toFixed(2));
 
 module.exports = createMenu;
