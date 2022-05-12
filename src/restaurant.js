@@ -103,7 +103,6 @@ const createMenu = (menuObj) => (
     order(request) {
       this.consumption.push(request);
     },
-    // { food: {'coxinha': 3.9, 'sopa': 9.9}, drink: {'agua': 3.9, 'cerveja': 6.9} }
     pay() {
       const { food, drink } = this.menu;
       return this.consumption
@@ -117,10 +116,3 @@ const createMenu = (menuObj) => (
 );
 
 module.exports = createMenu;
-
-const menu = createMenu({ food: { coxinha: 3.9, sopa: 9.9 }, drink: { agua: 3.9, cerveja: 6.9 } });
-menu.order('coxinha');
-menu.order('agua');
-menu.order('coxinha');
-
-console.log(menu.pay());
