@@ -1,4 +1,4 @@
-# TrybeTunes Project
+# Unit Tests JavaScript
 Projeto desenvolvido para o curso de desenvolvimento web da [Trybe](https://www.betrybe.com/)
 
 Esse projeto foi desenvolvido com o intuito de fixar os conhecimentos aprendidos sobre testes unitários em Javascript
